@@ -1,0 +1,84 @@
+#VRML_SIM R2022b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/robots/gctronic/e-puck/protos/E-puck.proto"
+
+WorldInfo {
+  info [
+    "Example use of a Pen device using evaporating ink."
+  ]
+  title "Pen"
+  inkEvaporation 0.0001
+}
+Viewpoint {
+  orientation 0.03598274767757662 -0.9966110627900338 0.07397047650306866 5.4648485663289685
+  position -1.0583931016003079 0.11214530876865687 1.0633967387097911
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorTileSize 1 1
+}
+Robot {
+  translation -0.4157706039700472 0.43939309209741995 -0.00021517533220326984
+  rotation 0.004780082865400362 0.000834504544777506 -0.9999882271356821 -0.33165479893443184
+  children [
+    E-puck {
+      hidden position_0_0 210821.53884097288
+      hidden position_0_1 113163.39250571208
+      hidden rotation_1 0 -0.9999999999999999 0 4.460956130968005
+      hidden linearVelocity_1 0.00968188252351806 0.002612907962294551 6.071681334979907e-06
+      hidden angularVelocity_1 -2.0179264536171724 5.946908527818505 0.07722127156084907
+      hidden rotation_2 0 1 0 3.2251234077271334
+      hidden linearVelocity_2 0.014580898295651469 0.004929480715178297 -6.808692461990035e-06
+      hidden angularVelocity_2 -0.2513468856261702 0.7436809194257927 0.11895262850437935
+      controller "WallFollow"
+    }
+    Pen {
+      translation 0 0 0.001
+      children [
+        Transform {
+          translation 0 0 0.07
+          children [
+            Shape {
+              appearance PBRAppearance {
+                baseColor 1 0.692371 0
+                roughness 0.3707939685999999
+                metalness 0
+              }
+              geometry Cylinder {
+                height 0.14
+                radius 0.004
+              }
+            }
+          ]
+        }
+      ]
+      leadSize 0.01
+    }
+  ]
+  name "MyBot"
+  boundingObject Transform {
+    translation 0 0 0.0415
+    rotation 0 0 1 -1.570796
+    children [
+      DEF BODY Cylinder {
+        height 0.08
+        radius 0.045
+      }
+    ]
+  }
+  physics Physics {
+    density -1
+    mass 0.5
+    centerOfMass [
+      0 0 0
+    ]
+  }
+  linearVelocity 0.01174258927161421 0.0036335865443615683 -3.3176808205736123e-06
+  angularVelocity -0.0005154046236322827 -0.00016709640520069422 0.12046855390034406
+}
